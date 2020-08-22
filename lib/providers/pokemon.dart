@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 
 Pokemon pokemonFromJson(String str) => Pokemon.fromJson(json.decode(str));
 
-class Pokemon {
+class Pokemon with ChangeNotifier {
   Pokemon(
       {@required this.id,
       @required this.name,
@@ -17,6 +17,9 @@ class Pokemon {
   List<String> types = [];
   String defaultSprite;
   String shinnySprite;
+  bool displayDefault = true;
+
+  void changeDisplay() => displayDefault = !displayDefault;
 
   factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon(
       id: json['id'],
