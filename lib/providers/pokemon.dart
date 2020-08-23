@@ -6,11 +6,7 @@ Pokemon pokemonFromJson(String str) => Pokemon.fromJson(json.decode(str));
 
 class Pokemon with ChangeNotifier {
   Pokemon(
-      {@required this.id,
-      @required this.name,
-      @required this.types,
-      @required this.defaultSprite,
-      @required this.shinnySprite});
+      {this.id, this.name, this.types, this.defaultSprite, this.shinnySprite});
 
   int id;
   String name;
