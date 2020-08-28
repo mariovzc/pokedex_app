@@ -37,12 +37,13 @@ class Pokemon with ChangeNotifier {
       id: json['id'],
       name: json['name'],
       types: _typesBuilder(json["types"]),
-      shinnySprite: _spriteBuilder(json, "front_default"),
-      defaultSprite: _spriteBuilder(json, "front_shiny"));
+      shinnySprite: _spriteBuilder(json, "front_shiny"),
+      defaultSprite: _spriteBuilder(json, "front_default"));
 
   static String _spriteBuilder(json, key) =>
       json["sprites"][key] == null ? "" : json["sprites"][key];
 
-  static List _typesBuilder(List types) =>
-      types.map((item) => item["type"]["name"].toString()).toList();
+  static List _typesBuilder(List types) => types
+      .map((item) => item["type"]["name"].toString().toLowerCase())
+      .toList();
 }
