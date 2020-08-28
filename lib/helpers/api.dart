@@ -7,7 +7,7 @@ import 'package:pokedex/models/pokemons.dart';
 class API {
   static const BASEURL = "https://pokeapi.co/api/v2/pokemon";
 
-  static Future<Pokemons> getAll({limit = 20, offset = 0}) async {
+  static Future<Pokemons> getAll({limit = 50, offset = 300}) async {
     var req = await http.get("$BASEURL?limit=$limit&offset=$offset", headers: {
       HttpHeaders.contentTypeHeader: "application/json",
     });
