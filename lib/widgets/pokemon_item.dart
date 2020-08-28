@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:pokedex/providers/pokemon.dart';
+import 'package:pokedex/widgets/double_color_bg.dart';
 import 'package:provider/provider.dart';
 
 class PokemonItem extends StatelessWidget {
@@ -13,10 +14,8 @@ class PokemonItem extends StatelessWidget {
       onTap: () => pokemon.changeDisplay(),
       child: Stack(
         children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.red,
+          DoubleColorBg(
+            colors: _colorBuilder(pokemon.types),
           ),
           Consumer<Pokemon>(
             builder: (_, model, __) => Align(
@@ -49,5 +48,71 @@ class PokemonItem extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<Color> _colorBuilder(List<String> types) {
+    return types.map((t) => _getColorByType(t)).toList();
+  }
+
+  Color _getColorByType(type) {
+    switch (type) {
+      case "fairy":
+        return Colors.blueGrey[50];
+        break;
+      case "dark":
+        return Colors.blueGrey[800];
+        break;
+      case "dragon":
+        return Colors.deepPurple[400];
+        break;
+      case "steel":
+        return Colors.grey;
+        break;
+      case "ghost":
+        return Colors.purple[300];
+        break;
+      case "bug":
+        return Colors.green[200];
+        break;
+      case "ice":
+        return Colors.blue[200];
+        break;
+      case "psychic":
+        return Colors.purple[700];
+        break;
+      case "rock":
+        return Colors.yellow[800];
+        break;
+      case "ground":
+        return Colors.brown[400];
+        break;
+      case "electric":
+        return Colors.yellow[400];
+        break;
+      case "poison":
+        return Colors.purple[800];
+        break;
+      case "fighting":
+        return Colors.deepOrange[400];
+        break;
+      case "flying":
+        return Colors.deepPurple[400];
+        break;
+      case "grass":
+        return Colors.green;
+        break;
+      case "water":
+        return Colors.blue[900];
+        break;
+      case "fire":
+        return Colors.red[900];
+        break;
+      case "normal":
+        return Colors.pink[200];
+        break;
+      default:
+        return Colors.black87;
+        break;
+    }
   }
 }
