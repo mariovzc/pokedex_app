@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:pokedex/helpers/string_formatters.dart';
 import 'package:pokedex/providers/pokemon.dart';
 import 'package:pokedex/widgets/double_color_bg.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +39,7 @@ class PokemonItem extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(8),
               child: Text(
-                pokemon.name,
+                StringFormatter.capitalize(pokemon.name),
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
