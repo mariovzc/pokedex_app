@@ -6,13 +6,14 @@ import 'package:pokedex/models/pokemons.dart';
 
 class API {
   static const BASEURL = "https://pokeapi.co/api/v2/pokemon";
+  
 
   static Future<Pokemons> getAll({limit = 50, offset = 300}) async {
     var req = await http.get("$BASEURL?limit=$limit&offset=$offset", headers: {
       HttpHeaders.contentTypeHeader: "application/json",
     });
 
-    if (req.statusCode != 200) throw Exception(req.statusCode.toString());
+    if (req.statusCode != 200) throw Exception("status code: ${req.statusCode.toString()} -  msg: ${req.body.toString()}");
 
     final res = convert.jsonDecode(req.body);
 
@@ -22,7 +23,7 @@ class API {
   static Future<Pokemon> getItem(String pokeUrl) async {
     final req = await http.get(pokeUrl);
 
-    if (req.statusCode != 200) throw Exception(req.statusCode.toString());
+    if (req.statusCode != 200) throw Exception("status code: ${req.statusCode.toString()} -  msg: ${req.body.toString()}");
 
     final res = convert.jsonDecode(req.body);
 
