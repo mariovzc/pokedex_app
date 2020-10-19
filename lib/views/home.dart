@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/providers/pokemon_list.dart';
-import 'package:pokedex/widgets/list_items.dart';
 import 'package:provider/provider.dart';
+import 'package:pokedex/widgets/list_items.dart';
+import 'package:pokedex/providers/pokemon_list.dart';
 
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
