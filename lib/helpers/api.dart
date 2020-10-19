@@ -1,8 +1,8 @@
-import 'dart:convert' as convert;
 import 'dart:io';
+import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
-import 'package:pokedex/providers/pokemon.dart';
 import 'package:pokedex/models/pokemons.dart';
+import 'package:pokedex/providers/pokemon.dart';
 
 class API {
   static const BASEURL = "https://pokeapi.co/api/v2/pokemon";
@@ -13,7 +13,9 @@ class API {
       HttpHeaders.contentTypeHeader: "application/json",
     });
 
-    if (req.statusCode != 200) throw Exception("status code: ${req.statusCode.toString()} -  msg: ${req.body.toString()}");
+    if (req.statusCode != 200) throw Exception(
+      "status code: ${req.statusCode.toString()} -  msg: ${req.body.toString()}"
+    );
 
     final res = convert.jsonDecode(req.body);
 
@@ -23,7 +25,9 @@ class API {
   static Future<Pokemon> getItem(String pokeUrl) async {
     final req = await http.get(pokeUrl);
 
-    if (req.statusCode != 200) throw Exception("status code: ${req.statusCode.toString()} -  msg: ${req.body.toString()}");
+    if (req.statusCode != 200) throw Exception(
+      "status code: ${req.statusCode.toString()} -  msg: ${req.body.toString()}"
+    );
 
     final res = convert.jsonDecode(req.body);
 
