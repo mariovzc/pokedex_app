@@ -14,7 +14,7 @@ class API {
     });
 
     if (req.statusCode != 200) throw Exception(
-      "status code: ${req.statusCode.toString()} -  msg: ${req.body.toString()}"
+      "status code: ${req.statusCode.toString()}"
     );
 
     final res = convert.jsonDecode(req.body);
@@ -26,7 +26,7 @@ class API {
     final req = await http.get(pokeUrl);
 
     if (req.statusCode != 200) throw Exception(
-      "status code: ${req.statusCode.toString()} -  msg: ${req.body.toString()}"
+      "status code: ${req.statusCode.toString()}"
     );
 
     final res = convert.jsonDecode(req.body);
