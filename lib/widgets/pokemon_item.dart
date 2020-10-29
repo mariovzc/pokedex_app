@@ -56,64 +56,30 @@ class PokemonItem extends StatelessWidget {
   }
 
   Color _getColorByType(type) {
-    switch (type) {
-      case "fairy":
-        return Colors.blueGrey[50];
-        break;
-      case "dark":
-        return Colors.blueGrey[800];
-        break;
-      case "dragon":
-        return Colors.deepPurple[400];
-        break;
-      case "steel":
-        return Colors.grey;
-        break;
-      case "ghost":
-        return Colors.purple[300];
-        break;
-      case "bug":
-        return Colors.green[200];
-        break;
-      case "ice":
-        return Colors.blue[200];
-        break;
-      case "psychic":
-        return Colors.purple[700];
-        break;
-      case "rock":
-        return Colors.yellow[800];
-        break;
-      case "ground":
-        return Colors.brown[400];
-        break;
-      case "electric":
-        return Colors.yellow[400];
-        break;
-      case "poison":
-        return Colors.purple[800];
-        break;
-      case "fighting":
-        return Colors.deepOrange[400];
-        break;
-      case "flying":
-        return Colors.deepPurple[400];
-        break;
-      case "grass":
-        return Colors.green;
-        break;
-      case "water":
-        return Colors.blue[900];
-        break;
-      case "fire":
-        return Colors.red[900];
-        break;
-      case "normal":
-        return Colors.pink[200];
-        break;
-      default:
-        return Colors.black87;
-        break;
+    Map colors = {
+      "fairy": Colors.blueGrey[50],
+      "dark": Colors.blueGrey[800],
+      "dragon": Colors.deepPurple[400],
+      "steel": Colors.grey,
+      "ghost": Colors.purple[300],
+      "bug": Colors.green[200],
+      "ice": Colors.blue[200],
+      "psychic": Colors.purple[700],
+      "rock": Colors.yellow[800],
+      "ground": Colors.brown[400],
+      "electric": Colors.yellow[400],
+      "poison": Colors.purple[800],
+      "fighting": Colors.deepOrange[400],
+      "flying": Colors.deepPurple[400],
+      "grass": Colors.green,
+      "water": Colors.blue[900],
+      "fire": Colors.red[900],
+      "normal": Colors.pink[200]
+    };
+
+    if (colors[type] == null){
+      return Colors.black87;
     }
+    return colors[type];
   }
 }
