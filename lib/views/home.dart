@@ -10,6 +10,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Image.network(
+            "https://img.icons8.com/color/48/000000/pokeball-2.png"),
         title: const Text('PokeDex'),
       ),
       body: SafeArea(
