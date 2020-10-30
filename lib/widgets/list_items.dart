@@ -5,7 +5,8 @@ import 'package:pokedex/widgets/item.dart';
 import 'package:provider/provider.dart';
 
 class ListItems extends StatelessWidget {
-  const ListItems({Key key}) : super(key: key);
+  final int gridList;
+  const ListItems(this.gridList, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class ListItems extends StatelessWidget {
             sliver: SliverGrid.count(
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
-                crossAxisCount: 2,
+                crossAxisCount: gridList,
                 children: model.items.results
                     .map((item) => ChangeNotifierProvider(
                           create: (_) => Pokemon(),
